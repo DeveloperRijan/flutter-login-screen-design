@@ -15,13 +15,7 @@ class _LoginScreenState extends State<LoginScreen> {
       //appbar
       appBar: AppBar(
         backgroundColor: app_bar_bg,
-        title: Text("Login"),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.account_box_rounded),
-          )
-        ],
+        title: Text("Shoprgo"),
       ),
 
       //body
@@ -37,15 +31,36 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
-            Positioned(
-              top: 30,
-              left: 0,
+            SizedBox(
+              height: 30,
+            ),
+            Container(
+              padding: EdgeInsets.all(24),
               child: Form(
                 child: Column(
                   children: [
                     Column(
                       children: [
+                        Text(
+                          "Login",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 25,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text("to access your account"),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Column(
+                      children: [
                         TextFormField(
+                          obscureText: true,
                           decoration: InputDecoration(
                             hintText: "Email",
                             fillColor: Colors.transparent,
@@ -58,11 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             contentPadding: EdgeInsets.only(
                                 bottom: 10.0, left: 10.0, right: 10.0),
                           ),
-                          validator: (v) {
-                            if (v == '') {
-                              return "Please enter email";
-                            }
-                          },
                         )
                       ],
                     ),
