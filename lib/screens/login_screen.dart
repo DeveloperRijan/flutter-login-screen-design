@@ -26,92 +26,141 @@ class _LoginScreenState extends State<LoginScreen> {
 
       //body
       body: Container(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width / 10,
-            vertical: 10,
-          ),
-          child: Form(
-            child: Column(
-              children: [
-                Column(
-                  children: [
-                    TextFormField(
-                      decoration: InputDecoration(
-                        hintText: 'Your email',
-                      ),
-                      validator: (v) {
-                        if (v == null) {
-                          return "Please enter name";
-                        }
-                      },
-                    )
-                  ],
+        child: Stack(
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("/images/login_bg.jpg"),
+                      fit: BoxFit.cover),
                 ),
-                Column(
+              ),
+            ),
+            Positioned(
+              top: 30,
+              left: 0,
+              child: Form(
+                child: Column(
                   children: [
-                    TextFormField(
-                      obscureText: true,
-                      decoration: InputDecoration(hintText: "Password"),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 16,
-                ),
-                Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                    Column(
                       children: [
-                        ElevatedButton.icon(
-                          onPressed: () {},
-                          icon: Icon(Icons.lock),
-                          label: Text("Login"),
-                          style: ElevatedButton.styleFrom(
-                              primary: Color(0xFF2C5381),
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 20,
-                                vertical: 20,
-                              ),
-                              textStyle: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              )),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            hintText: "Email",
+                            fillColor: Colors.transparent,
+                            border: UnderlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5.0)),
+                                borderSide: BorderSide(color: Colors.blue)),
+                            filled: true,
+                            contentPadding: EdgeInsets.only(
+                                bottom: 10.0, left: 10.0, right: 10.0),
+                          ),
+                          validator: (v) {
+                            if (v == '') {
+                              return "Please enter email";
+                            }
+                          },
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Column(
+                      children: [
+                        TextFormField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText: "Password",
+                            fillColor: Colors.transparent,
+                            border: UnderlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5.0)),
+                                borderSide: BorderSide(color: Colors.blue)),
+                            filled: true,
+                            contentPadding: EdgeInsets.only(
+                                bottom: 10.0, left: 10.0, right: 10.0),
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            ElevatedButton.icon(
+                              onPressed: () {},
+                              icon: Icon(Icons.lock),
+                              label: Text("Login"),
+                              style: ElevatedButton.styleFrom(
+                                  primary: Color(0xFF2C5381),
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                    vertical: 20,
+                                  ),
+                                  textStyle: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+
+                    //devider
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "OR",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black87,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.add),
+                            label: Text("Register"),
+                            style: ElevatedButton.styleFrom(
+                                primary: Colors.grey,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 20,
+                                  vertical: 20,
+                                ),
+                                textStyle: TextStyle(
+                                  fontSize: 20,
+                                )),
+                          ),
                         )
                       ],
                     )
                   ],
                 ),
-
-                //devider
-                SizedBox(
-                  height: 24,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: ElevatedButton.icon(
-                        onPressed: () {},
-                        icon: Icon(Icons.account_box),
-                        label: Text("Register"),
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.grey,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 20,
-                            ),
-                            textStyle: TextStyle(
-                              fontSize: 20,
-                            )),
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );
